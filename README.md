@@ -31,4 +31,4 @@ dotnet run
 - The Resource files are available in `~/blazor-webassembly-app/Resources` location.
 
 ## See Also
-- https://blazor.syncfusion.com/documentation/common/localization/
+- [Syncfusion Blazor Localization](https://blazor.syncfusion.com/documentation/common/localization/)
