@@ -1,7 +1,7 @@
 # blazor-localization
 Localization samples for Syncfusion Blazor UI components in Blazor Server and Blazor WebAssembly application
 
-## How to run the application in Visual Studio
+## How to run the application
 - Clone the repostiry using below command line from the command prompt.
 
 ```
