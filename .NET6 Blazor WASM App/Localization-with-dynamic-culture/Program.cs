@@ -7,7 +7,6 @@ using Syncfusion.Blazor;
 using System.Globalization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTkxMjc2QDMxMzkyZTM0MmUzMGduMExrNHJITk4xOEZ4Z1RXTDkxU29FMkhUdVVyeXhEd1pKZHE5R1ZPUW89");
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
