@@ -16,7 +16,6 @@ using SyncfusionServerLocalization.Shared;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Localization;
 
-
 namespace SyncfusionServerLocalization
 {
     public class Startup
@@ -32,10 +31,11 @@ namespace SyncfusionServerLocalization
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTkzODEyQDMxMzkyZTM0MmUzMGduMExrNHJITk4xOEZ4Z1RXTDkxU29FMkhUdVVyeXhEd1pKZHE5R1ZPUW89");
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddSyncfusionBlazor();
+            services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
             // Register the Syncfusion locale service to customize the SyncfusionBlazor component locale culture
             services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
             services.Configure<RequestLocalizationOptions>(options =>
