@@ -14,6 +14,4 @@ builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 // Register the Syncfusion locale service to customize the  SyncfusionBlazor component locale culture
 builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
-CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("de");
-CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("de");
 await builder.Build().RunAsync();
