@@ -1,33 +1,51 @@
-﻿@inject NavigationManager NavigationManager
+﻿@using  System.Globalization
+@inject NavigationManager NavigationManager
 @inject HttpClient Http
 
-<select @onchange="OnSelected">
-    <option hidden>@culture</option>
-    <option value="en-US">English (en-US)</option>
-    <option value="de">German (de)</option>
-    <option value="fr">French (fr)</option>
-    <option value="ar">Arabic (ar)</option>
-    <option value="zh">Chinese (zh)</option>
-</select>
+<p>
+    <label>
+        Select your locale:
+        <select @bind="Culture">
+            @foreach (var culture in supportedCultures)
+            {
+                <option value="@culture">@culture.DisplayName</option>
+            }
+        </select>
+    </label>
+</p>
 
- @code {
+@code {
 
-     private string culture { get; set; }
-
-    protected override async Task OnInitializedAsync()
+    private CultureInfo[] supportedCultures = new[]
     {
-        await base.OnInitializedAsync();
-        this.culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+        new CultureInfo("en-US"),
+        new CultureInfo("de"),
+        new CultureInfo("fr"),
+        new CultureInfo("ar"),
+        new CultureInfo("zh")
+    };
+
+    protected override void OnInitialized()
+    {
+        Culture = CultureInfo.CurrentCulture;
     }
 
-     private void OnSelected(ChangeEventArgs e)
-     {
-         var culture = (string)e.Value;
-         var uri = new Uri(NavigationManager.Uri)
-             .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
-         var query = $"?culture={Uri.EscapeDataString(culture)}&" +
-             $"redirectUri={Uri.EscapeDataString(uri)}";
+    private CultureInfo Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            if (CultureInfo.CurrentCulture != value)
+            {
+                var uri = new Uri(NavigationManager.Uri)
+                    .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+                var cultureEscaped = Uri.EscapeDataString(value.Name);
+                var uriEscaped = Uri.EscapeDataString(uri);
 
-         NavigationManager.NavigateTo("/" + query, forceLoad:  true);
-     }
- }
+                NavigationManager.NavigateTo(
+                    $"Culture/SetCulture?culture={cultureEscaped}&redirectUri={uriEscaped}",
+                    forceLoad: true);
+            }
+        }
+    }
+}

@@ -35,7 +35,7 @@ namespace SyncfusionServerLocalization
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
-            // Register the Syncfusion locale service to customize the SyncfusionBlazor component locale culture
+            //Register the Syncfusion locale service to localize Syncfusion Blazor components.
             services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
             services.Configure<RequestLocalizationOptions>(options =>
             {
