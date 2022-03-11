@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LocalizationServer.Controllers
 {
+    [Route("[controller]/[action]")]
     public class CultureController : Controller
     {
         public IActionResult SetCulture(string culture, string redirectUri)

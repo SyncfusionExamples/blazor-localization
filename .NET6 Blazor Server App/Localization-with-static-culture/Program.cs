@@ -11,9 +11,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddControllers();
-// Set the resx file folder path to access
+
 builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
-// Register the Syncfusion locale service to customize the  SyncfusionBlazor component locale culture
+//Register the Syncfusion locale service to localize Syncfusion Blazor components.
 builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
 
 var app = builder.Build();

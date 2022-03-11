@@ -21,9 +21,11 @@ namespace LocalizationWASMSample.Client
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            
             builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
-            // Register the Syncfusion locale service to customize the Blazor component locale culture
+            //Register the Syncfusion locale service to localize Syncfusion Blazor components.
             builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
+
             await builder.Build().RunAsync();
         }
     }

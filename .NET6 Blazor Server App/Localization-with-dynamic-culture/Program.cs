@@ -14,16 +14,17 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddControllers();
-// Set the resx file folder path to access
-//builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
-// Register the Syncfusion locale service to customize the  SyncfusionBlazor component locale culture
+//Register the Syncfusion locale service to localize Syncfusion Blazor components.
 builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
+
 var supportedCultures = new[] { "en-US", "de", "fr", "ar", "zh" };
 var localizationOptions = new RequestLocalizationOptions()
     .SetDefaultCulture(supportedCultures[0])
     .AddSupportedCultures(supportedCultures)
     .AddSupportedUICultures(supportedCultures);
+
 var app = builder.Build();
 app.UseRequestLocalization(localizationOptions);
 // Configure the HTTP request pipeline.
@@ -39,7 +40,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
