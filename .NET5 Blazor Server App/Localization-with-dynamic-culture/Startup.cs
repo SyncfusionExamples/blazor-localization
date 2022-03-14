@@ -32,6 +32,7 @@ namespace SyncfusionServerLocalization
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });

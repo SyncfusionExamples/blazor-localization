@@ -15,20 +15,22 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 //Register the Syncfusion locale service to localize Syncfusion Blazor components.
 builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
 
-// Set the default culture of the application
-CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
-
-// Get the modified culture from culture switcher
 var host = builder.Build();
+
+//Setting culture of the application
 var jsInterop = host.Services.GetRequiredService<IJSRuntime>();
 var result = await jsInterop.InvokeAsync<string>("cultureInfo.get");
+CultureInfo culture;
 if (result != null)
 {
-    // Set the culture from culture switcher
-    var culture = new CultureInfo(result);
-    CultureInfo.DefaultThreadCurrentCulture = culture;
-    CultureInfo.DefaultThreadCurrentUICulture = culture;
+    culture = new CultureInfo(result);
 }
+else
+{
+    culture = new CultureInfo("en-US");
+    await jsInterop.InvokeVoidAsync("cultureInfo.set", "en-US");
+}
+CultureInfo.DefaultThreadCurrentCulture = culture;
+CultureInfo.DefaultThreadCurrentUICulture = culture;
 
 await builder.Build().RunAsync();

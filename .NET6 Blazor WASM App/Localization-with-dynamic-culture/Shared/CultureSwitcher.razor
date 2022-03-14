@@ -3,7 +3,6 @@
 @inject NavigationManager NavigationManager
 
 <select @bind="Culture">
-    <option hidden>@CultureInfo.DefaultThreadCurrentCulture.Name</option>
     @foreach (var culture in supportedCultures)
     {
         <option value="@culture">@culture.DisplayName</option>
