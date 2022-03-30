@@ -13,4 +13,4 @@ Localization examples showing localization of Syncfusion Blazor UI components in
 > Always use latest resource (resx) files from [blazor locale](https://github.com/syncfusion/blazor-locale) repo.
 
 ## See also
-- [Syncfusion Blazor Localization](https://blazor.syncfusion.com/documentation/common/localization/)
+- [Blazor Localization documentation](https://blazor.syncfusion.com/documentation/common/localization/)
