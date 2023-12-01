@@ -44,10 +44,10 @@ namespace SyncfusionServerLocalization
                 var supportedCultures = new List<CultureInfo>()
                 {
                     new CultureInfo("en-US"),
-                    new CultureInfo("de"),
-                    new CultureInfo("fr"),
-                    new CultureInfo("ar"),
-                    new CultureInfo("zh"),
+                    new CultureInfo("de-DE"),
+                    new CultureInfo("fr-FR"),
+                    new CultureInfo("ar-AE"),
+                    new CultureInfo("zh-HK"),
                 };
                 // Set the default culture
                 options.DefaultRequestCulture = new RequestCulture("en-US");
