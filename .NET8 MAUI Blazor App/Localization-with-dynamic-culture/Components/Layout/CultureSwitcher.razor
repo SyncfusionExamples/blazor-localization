@@ -1,0 +1,44 @@
+﻿@using System.Globalization
+@inject IJSRuntime jsInterop
+@inject NavigationManager NavigationManager
+@using System.Globalization
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+<select @bind="Culture">
+    @foreach (var culture in supportedCultures)
+    {
+        <option value="@culture">@culture.DisplayName</option>
+    }
+</select>
+
+@code {
+    private CultureInfo[] supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("de-DE"),
+        new CultureInfo("fr-FR"),
+        new CultureInfo("ar-AE"),
+        new CultureInfo("zh-HK")
+    };
+
+    private CultureInfo Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            if (CultureInfo.CurrentCulture != value)
+            {
+                // var js = (IJSInProcessRuntime)JSRuntime;
+                // jsInterop.InvokeVoidAsync("cultureInfo.set", value.Name);
+
+                // Thread.CurrentThread.CurrentCulture = value;
+                // Thread.CurrentThread.CurrentUICulture = value;
+                CultureInfo.DefaultThreadCurrentCulture = value;
+                CultureInfo.DefaultThreadCurrentUICulture = value;
+                Preferences.Set("language", value.Name);
+                NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+            }
+        }
+    }
+}
