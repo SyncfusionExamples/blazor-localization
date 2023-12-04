@@ -29,11 +29,6 @@
         {
             if (CultureInfo.CurrentCulture != value)
             {
-                // var js = (IJSInProcessRuntime)JSRuntime;
-                // jsInterop.InvokeVoidAsync("cultureInfo.set", value.Name);
-
-                // Thread.CurrentThread.CurrentCulture = value;
-                // Thread.CurrentThread.CurrentUICulture = value;
                 CultureInfo.DefaultThreadCurrentCulture = value;
                 CultureInfo.DefaultThreadCurrentUICulture = value;
                 Preferences.Set("language", value.Name);
