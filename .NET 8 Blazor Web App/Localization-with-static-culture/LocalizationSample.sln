@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationSample", "LocalizationSample\LocalizationSample.csproj", "{82675847-2AC0-40FD-AF08-1634BAC6F304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationSample.Client", "LocalizationSample.Client\LocalizationSample.Client.csproj", "{05BF7A13-EE01-4CDD-9FB1-6A475AF4BB3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82675847-2AC0-40FD-AF08-1634BAC6F304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82675847-2AC0-40FD-AF08-1634BAC6F304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82675847-2AC0-40FD-AF08-1634BAC6F304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82675847-2AC0-40FD-AF08-1634BAC6F304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05BF7A13-EE01-4CDD-9FB1-6A475AF4BB3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05BF7A13-EE01-4CDD-9FB1-6A475AF4BB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05BF7A13-EE01-4CDD-9FB1-6A475AF4BB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05BF7A13-EE01-4CDD-9FB1-6A475AF4BB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {238BC39B-B131-4ED7-8401-67706FB788CD}
+	EndGlobalSection
+EndGlobal
