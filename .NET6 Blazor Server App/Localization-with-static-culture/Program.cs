@@ -17,7 +17,7 @@ builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation 
 builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
 
 var app = builder.Build();
-app.UseRequestLocalization("de");
+app.UseRequestLocalization("de-DE");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
