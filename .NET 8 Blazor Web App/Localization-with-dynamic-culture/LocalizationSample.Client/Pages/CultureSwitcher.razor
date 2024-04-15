@@ -26,8 +26,7 @@
         {
             if (CultureInfo.CurrentCulture != value)
             {
-                var js = (IJSInProcessRuntime)JSRuntime;
-                js.InvokeVoid("cultureInfo.set", value.Name);
+                JSRuntime.InvokeVoidAsync("cultureInfo.set", value.Name);
 
                 NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
             }
